@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Project 1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: blueviolet;
+        }
+        .main{
+            width: 200px;
+            height: 300px;
+            position: absolute;
+          
+            left: 50%;
+            top: 50%;
+            /* margin: -150px -100px; */
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            background-image: url(background.avif);
+            background-size: cover;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px gray;
+            position: absolute;
+            transition: transform 1s;
+        }
+        .bird{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-image: url(bird1.png);
+            background-size: cover;
+            animation: smaple 0.2s infinite linear;
+            animation-play-state: paused !important;
+
+        }
+        .main:hover .bg{
+            transform: perspective(800px) scaleZ(2) rotateX(60deg);
+        }
+        .main:hover .bird{
+            transform: translateY(-150px);
+            animation-play-state: running !important;
+        }
+        @keyframes smaple {
+            from{
+                background-image: url(bird1.png);
+            }
+            to{
+                background-image: url(bird2.png);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main">
+        <div class="bg"></div>
+        <div class="bird"></div>
+    </div>
+</body>
+</html>
